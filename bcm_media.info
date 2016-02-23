@@ -1,0 +1,13 @@
+name = Berklee Media Player
+description = A field formatter specific for Learning Resource media player
+package = Berklee College of Music
+project = "bcm_media"
+datestamp = "1373924501"
+version = "7.x-1.0"
+core = 7.x
+#dependency below is disabled and the required function is temporary added to the module file.
+#dependencies[] = jsongutil
+
+stylesheets[all][] = bcm_media.css
+
+files[] = includes/bcm_media.inc

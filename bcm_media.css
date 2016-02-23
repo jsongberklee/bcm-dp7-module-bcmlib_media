@@ -1,0 +1,8 @@
+.bcm-media{}
+.bcm-media-btn{z-index: 2; position:absolute; cursor: pointer;}
+.bcm-media-btn > img{width: 250px !important; height: auto !important;}
+.bcm-media-player{display:none;}
+.bcm-media-player video {background-color: #000000;}
+/* .bcm-media-banner{z-index: -1;} */
+.bcm-media-show{display:inline-block}
+.bcm-media-banner{vertical-align: middle;}

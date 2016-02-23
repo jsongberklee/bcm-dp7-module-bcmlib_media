@@ -1,0 +1,49 @@
+<?php
+require_once __DIR__ . '/includes/bcm_media.inc';
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function bcm_media_field_formatter_info() {
+  return array(
+    'bcm_event_video_player' => array(
+      'label' => t('Berklee Event Video Player'),
+      'field types' => array('text'),
+    ),
+    'bcm_contest_media_player' => array(
+      'label' => t('Berklee Contest Media Player'),
+      'field types' => array('text'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function bcm_media_field_formatter_view($entity_type, $entity, $field, $instance, $lang_code, $items, $display) {
+
+  switch ($display['type']) {
+
+		case 'bcm_event_video_player':
+
+		  $elements[0]['#markup'] = _bcm_event_video_render_player($entity, $items);
+
+		break;
+		case 'bcm_contest_media_player':
+
+			$elements[0]['#markup'] = _bcm_contest_media_render_player($entity, $items);
+
+		break;
+	}
+
+  return $elements;
+}
+
+function bcm_media_user_logout($account) {
+}
+function bcm_media_user_login(&$edit, $account)
+{
+	if(isset($_GET['video']) && $_GET['video'] == 'autoplay'){
+		drupal_goto($_GET['eventdest'], array('query' => array('video' => 'autoplay')));
+	}
+}

@@ -20,17 +20,17 @@
 			if(Drupal.settings.bcm_media.liveStreamingProvided){
 				$(".wow_media.wowza-player").css("display", "none");
 			}
-			
+
 			banner.ensureLoad(function(){
-			
-				if($(".bcm-media-btn").length == 0) {				
-					wrapper.append('<div class="bcm-media-btn"><img src="/sites/all/modules/bcm_media/images/play-fff.png" /></div>');
+
+				if($(".bcm-media-btn").length == 0) {
+					wrapper.append('<div class="bcm-media-btn"><img src="/sites/all/modules/bcmlib_media/images/play-fff.png" /></div>');
 					var btn = $(".bcm-media-btn");
 					btn.css('width', wrapper.width()+'px')
 							.css('height', wrapper.height()+'px')
 							.css('margin-top', (wrapper.height()*-1)+'px');
 				}
-								
+
 				var imgbtn = $(".bcm-media-btn > img");
 				imgbtn.load(function(){
 					imgbtn.css('margin-top', (wrapper.height()-imgbtn.height())/2+'px');
@@ -42,7 +42,7 @@ imgbtn.fadeIn('slow', function(){
 						}, 2000);
 					});
 */
-					
+
 					$(window).resize(function(){
 						$(".bcm-media-btn").css('width', wrapper.width()+'px')
 															.css('height', wrapper.height()+'px')
@@ -56,21 +56,21 @@ imgbtn.fadeIn('slow', function(){
 				player.width(banner.width()); player.height(banner.height());
 				wrapper.append(function() {
 					if(Drupal.settings.bcm_media.liveStreamingProvided){
-						
+
 						// set autoPlay to true for the wowza player
 						var wowza = $(".wow_media.wowza-player");
 						wowza.html(function(index,text){
 								//text.replace('controls','autoplay controls');
 								return text.replace('autoPlay=false','autoPlay=true');
 						});
-						
+
 						return wowza
             					.css("width", banner.width()+"px")
             					.css("height", banner.height()+"px")
             					.css("display", "table-cell");
-						
+
 					}else{
-						
+
 						return $(".bcm-media-player.bcm-media-banner")
             					.css("width", banner.width()+"px")
             					.css("height", banner.height()+"px")
